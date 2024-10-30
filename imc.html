@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indice de masa muscular</title>
+    <link rel="stylesheet" href="styleimc.css">
+
+</head>
+<body>
+    <section class="hola">
+        <div class="heading">
+            <h2>Masa Muscular</h2>
+        </div>
+        <a href="index.html" class="btn">Inicio</a>
+        <div class="about-container sobren">
+           
+            <h1>Cálculo de Índice de Masa Corporal (IMC)</h1>
+            <form id="imcForm">
+                <label for="peso">Ingrese su peso (kg):</label>
+                <input type="number" id="peso" required>
+                <label for="altura">Ingrese su altura (m):</label>
+                <input type="number" id="altura" step="0.01" required>
+                <button type="submit">Calcular IMC</button>
+            </form>
+            
+            <div class="result" id="resultado"></div>
+        
+                <script>
+                document.getElementById('imcForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+        
+                    const peso = parseFloat(document.getElementById('peso').value);
+                    const altura = parseFloat(document.getElementById('altura').value);
+                    const imc = peso / (altura * altura);
+                    let categoria;
+        
+                    if (imc < 18.5) {
+                        categoria = "estás bajo de peso.";
+                    } else if (imc >= 18.5 && imc <= 24.9) {
+                        categoria = "estás bien de peso.";
+                    } else if (imc >= 25 && imc <= 29.9) {
+                        categoria = "tienes sobrepeso.";
+                    } else {
+                        categoria = "estas en sobrepeso.";
+                    }
+        
+                    document.getElementById('resultado').textContent = `Tu IMC es ${imc.toFixed(2)} y ${categoria}`;
+                });
+            </script>
+             
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="heading">
+            <h3>Recomendaciones</h3>
+        </div>
+        <div class="recetas">
+            <div class="item">
+                <h4><b>Bajo de peso</b></h4>
+                <ul>
+                    <li>Combina la dieta con ejercicio para ganar masa muscular.</li>
+                    <li>Come alimentos ricos en calorías como nueces, aguacates y aceite de oliva.</li>
+                    <li>Añade grasas saludables como aceite de oliva y aguacate.</li>
+                    <li>Incluye carbohidratos integrales y proteínas magras en tu dieta.</li>
+                    <li>Consulta a un profesional de la salud si tienes preocupaciones.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <h4><b>Normal</b></h4>
+                <ul>
+                    <li>Prioriza frutas, verduras, carbohidratos saludables, proteínas magras y grasas saludables.</li>
+                    <li>Bebe suficiente agua.</li>
+                    <li>Limita el azúcar, la sal y alimentos procesados.</li>
+                    <li>Mantén un estilo de vida activo con ejercicio regular.</li>
+                    <li>Disfruta ocasionalmente de alimentos menos saludables con moderación.</li>
+                </ul>
+            </div>
+            <div class="item">
+                <h4><b>Sobrepeso</b></h4>
+                <ul>
+                    <li>Controla las porciones y come conscientemente.</li>
+                    <li>Prioriza alimentos saludables.</li>
+                    <li>Bebe agua y mantén un déficit calórico.</li>
+                    <li>Haz ejercicio regularmente.</li>
+                    <li>Consulta a un profesional de la salud.</li>
+                    <li>Mantén la consistencia en tus esfuerzos de pérdida de peso.</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="footer">
+            <h2>Energia Saludable</h2>
+            <div class="fooder-ico">
+                <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-shake fa-2xl" style="color: #b027ab;"></i></a>
+                <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-flip fa-2xl" style="color: #2460c6;"></i></a>
+            </div>
+            <div class="logos">
+                <img src="./img/logo_de_cefa-removebg-preview.png" alt="">
+                <img src="./img/logo_de_pascula-removebg-preview.png" alt="">
+               </div>
+            <div class="copyright">
+                <p>Energia Saludable | Derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

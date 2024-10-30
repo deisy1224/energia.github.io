@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de IMC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #4a90e2;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ab7;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9f7ef;
+            color: #2e7d32;
+            font-weight: bold;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cálculo de Índice de Masa Corporal (IMC)</h1>
+    <form id="imcForm">
+        <label for="peso">Ingrese su peso (kg):</label>
+        <input type="number" id="peso" required>
+        <label for="altura">Ingrese su altura (m):</label>
+        <input type="number" id="altura" step="0.01" required>
+        <button type="submit">Calcular IMC</button>
+    </form>
+    
+    <div class="result" id="resultado"></div>
+
+    <script>
+        document.getElementById('imcForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const imc = peso / (altura * altura);
+            let categoria;
+
+            if (imc < 18.5) {
+                categoria = "estás bajo de peso.";
+            } else if (imc >= 18.5 && imc <= 24.9) {
+                categoria = "estás bien de peso.";
+            } else if (imc >= 25 && imc <= 29.9) {
+                categoria = "tienes sobrepeso.";
+            } else {
+                categoria = "tienes obesidad.";
+            }
+
+            document.getElementById('resultado').textContent = `Tu IMC es ${imc.toFixed(2)} y ${categoria}`;
+        });
+    </script>
+</body>
+</html>
+

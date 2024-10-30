@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <img src="img/shape.png" class="square" alt="" />
+        <div class="form">
+            <div class="contact-info">
+                <h3 class="title">Registro</h3> 
+                <div class="img">
+                    <img src="./img/fon2.png" alt="">
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <span class="circle one"></span>
+                <span class="circle two"></span>
+
+                <!-- Formulario para registro -->
+                <form action="registro.php" method="POST" autocomplete="off">
+                    <h4>Nombre:</h4>
+                    <div class="input-container">
+                        <input type="text" name="name" class="input" required />
+                    </div>
+                    
+                    <h4>Email:</h4>
+                    <div class="input-container">
+                        <input type="email" name="email" class="input" required />
+                    </div>
+                    
+                    <h4>Contraseña:</h4>
+                    <div class="input-container">
+                        <input type="password" name="password" class="input" required />
+                    </div>
+                    
+                    <button type="submit" class="btn">COMENZAR</button>
+                    <a href="index.html" class="btn">INICIO</a>
+                </form>
+
+                <div class="logos">
+                    <img src="./img/logo_de_cefa-removebg-preview.png" alt="">
+                    <img src="./img/logo_de_pascula-removebg-preview.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
